@@ -1,0 +1,92 @@
+<head>
+	<link rel="stylesheet" type="text/cass" href="styles.css">
+	<script src="js/jquery-1.3.2.js"></script>
+	<script src="js/jquery-ui-1.7.2.custom.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('.column').sortable({
+			connectWith: '.column',
+			handle: 'h2',
+			cursor: 'move',
+			placeholder: 'placeholder',
+			forcePlaceholderSize: true,
+			opacity: 0.4,
+			stop: function(event, ui) {
+				$(ui.item).find('h2').click();
+			}
+		}).disableSelection();
+
+		// $('.dragbox').each(function() {
+		// 	$(this).hover(function() {
+		// 		$(this).find('h2').addClass('collapse');
+		// 	}, function() {
+		// 		$(this).find('h2').removeClass('collapse');
+		// 	})
+		// 	.find('h2').hover(function() {
+		// 		$(this).find('.configure').css('visibility', 'visibile');
+		// 	}, function() {
+		// 		$(this).find('.configure').css('visibility', 'hidden');
+		// 	})
+		// 	.click(function() {
+		// 		$(this).siblings('.dragbox-content').toggle();
+		// 	})
+		// 	.end()
+		// 	.find('.configure').css('visbility', 'hidden');
+		// });
+	});
+
+
+
+	</script>
+</head>
+
+<body>
+	<div class='column' id='column1'>
+		<div class='dragbox' id='item1'>
+			<h2>Task </h2>
+			<div class="dragbox-content">
+				<!-- Panel Content Here -->
+			</div>
+		</div>
+		<div class="dragbox" id='item2'>
+			<h2>
+				Email
+				<!--span class="configure">
+					<a href="#">Configure</a>
+				</span-->
+			</h2>
+
+			<div class="dragbox-content">
+				<!-- Panel Content Here -->
+			</div>
+		</div>
+		<div class="dragbox" id="item3">
+			<h2>Project</h2>
+			<div class="dragbox-content">
+				<!--Panel Content Here-->
+			</div>
+		</div>
+	</div>
+
+	<div class="column" id="column2">
+		<div class="dragbox" id="item4">
+			<h2>Labfrontdesk</h2>
+			<div class="dragbox-content">
+				<!-- Panel Content Here-->
+			</div>
+		</div>
+		<div class="dragbox" id="item5">
+			<h2>Wiki</h2>
+			<div class="dragbox-content">
+				<!-- Panel Content Here-->
+			</div>
+		</div>
+
+		<div class="dragbox" id="item5">
+			<h2>Lab News</h2>
+			<div class="dragbox-content">
+				<!-- Panel Content Here-->
+			</div>
+		</div>
+	</div>
+</body>
