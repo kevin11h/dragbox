@@ -54,10 +54,6 @@
 </head>
 
 <body>
-	<form>
-	    <input type="hidden" name="hiddenField" />
-	</form>
-
 	<div class='column bs-example' id='column1'>
 		<div class='dragbox panel panel-info' id='item1'>
 			<div class='panel-heading'>
@@ -120,10 +116,16 @@
 
 	<p><a class="btn btn-primary btn-lg" href="#" id="new" role="button">+</a></p>
 
-	<script type="text/javascript">
-		var replaceWith = $('<input name="temp" type="text" />'),
-		    connectWith = $('input[name="hiddenField"]');
+	<form>
+	    <input type="hidden" name="hiddenField" />
+	</form>
 
-		$('h2').inlineEdit(replaceWith, connectWith);
+	<script type="text/javascript">
+	$('div.dragbox').each(function() {
+		$(this).children('div.dragbox-content').after("<form><input type='hidden' name='hiddenField' /></form>");
+		var connectWith = $(this).children('form').children('input'),
+			replaceWith = $('<input name="temp" type="text" />');
+		$(this).children('div.panel-heading').children('h2').inlineEdit(replaceWith, connectWith);
+	});
 	</script>
 </body>
