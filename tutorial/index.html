@@ -127,5 +127,28 @@
 			replaceWith = $('<input name="temp" type="text" />');
 		$(this).children('div.panel-heading').children('h2').inlineEdit(replaceWith, connectWith);
 	});
+
+	var item_number = 0;
+
+	$('div.dragbox').each(function() {
+		item_number = item_number + 1;
+	});
+
+
+
+	$('a#new').click(function() {
+		item_number = item_number + 1;
+
+		var dragbox = $('div#column1').children('div.dragbox:first-child');
+		
+		dragbox.before("<div class='dragbox panel panel-info' id='item" + item_number + "'><div class='panel-heading'><h2 class='panel-title'>--</h2></div><div class='dragbox-content panel-body'></div></div>");
+
+		var dragbox = $('div#column1').children('div.dragbox:first-child');
+	
+		dragbox.children('div.dragbox-content').after("<form><input type='hidden' name='hiddenField' /></form>");
+		var connectWith = dragbox.children('form').children('input'),
+			replaceWith = $('<input name="temp" type="text" />');
+		dragbox.children('div.panel-heading').children('h2').inlineEdit(replaceWith, connectWith);
+	});
 	</script>
 </body>
